@@ -4,6 +4,8 @@ Landing page for Hackerspace Gent's NewLine event — a show and tell for hacker
 
 **29-30-31 May 2026** at Hackerspace Gent
 
+**Live site:** https://0x20.github.io/newline2026/
+
 ## Tech
 
 - Static HTML/CSS, no build process

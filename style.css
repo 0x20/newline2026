@@ -13,7 +13,7 @@
 
 body {
     font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Arial', sans-serif;
-    background: linear-gradient(180deg, #FF6B7A 0%, #FF8B6D 35%, #FFAF5F 70%, #FFC555 100%);
+    background: linear-gradient(180deg, #FF5A6E 0%, #FF7A58 35%, #FFA048 70%, #FFB640 100%);
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -43,7 +43,7 @@ main {
 
 .float-icon {
     position: absolute;
-    width: clamp(60px, 8vw, 120px);
+    width: clamp(70px, 10vw, 140px);
     opacity: 0.8;
     filter: brightness(0) invert(1);
 }
