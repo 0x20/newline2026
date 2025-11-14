@@ -10,18 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Floating icons scattered around -->
-    <div class="floating-icons">
-        <img src="img/icons/drone.png" alt="" class="float-icon float-1">
-        <img src="img/icons/3d.png" alt="" class="float-icon float-2">
-        <img src="img/icons/gamecontroller.png" alt="" class="float-icon float-3">
-        <img src="img/icons/solderiron.png" alt="" class="float-icon float-4">
-        <img src="img/icons/shroom.png" alt="" class="float-icon float-5">
-        <img src="img/icons/drone.png" alt="" class="float-icon float-6">
-        <img src="img/icons/solderiron.png" alt="" class="float-icon float-7">
-        <img src="img/icons/gamecontroller.png" alt="" class="float-icon float-8">
-    </div>
-
     <main>
         <div class="content">
             <header class="hero">
@@ -102,14 +90,18 @@
         </div>
     </main>
 
-    <script>
-        // Accordion functionality
-        document.querySelectorAll('.accordion-header').forEach(button => {
-            button.addEventListener('click', () => {
-                const accordionItem = button.parentElement;
-                accordionItem.classList.toggle('active');
-            });
-        });
-    </script>
+    <!-- Floating icons scattered around -->
+    <div class="floating-icons">
+        <img src="img/icons/drone.png" alt="" class="float-icon float-1">
+        <img src="img/icons/3d.png" alt="" class="float-icon float-2">
+        <img src="img/icons/gamecontroller.png" alt="" class="float-icon float-3">
+        <img src="img/icons/solderiron.png" alt="" class="float-icon float-4">
+        <img src="img/icons/shroom.png" alt="" class="float-icon float-5">
+        <img src="img/icons/drone.png" alt="" class="float-icon float-6">
+        <img src="img/icons/solderiron.png" alt="" class="float-icon float-7">
+        <img src="img/icons/gamecontroller.png" alt="" class="float-icon float-8">
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
