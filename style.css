@@ -1,395 +1,430 @@
 @font-face {
-    font-family: 'Brother';
-    src: url('fonts/brother-bold.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
+  font-family: "Brother";
+  src: url("fonts/brother-bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Arial', sans-serif;
-    background: linear-gradient(180deg, #FF5A6E 0%, #FF7A58 35%, #FFA048 70%, #FFB640 100%);
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    overflow-x: hidden;
-    padding: 2rem 0;
-    position: relative;
+  font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Arial", sans-serif;
+  background: linear-gradient(
+    180deg,
+    #ff5a6e 0%,
+    #ff7a58 35%,
+    #ffa048 70%,
+    #ffb640 100%
+  );
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  overflow-x: hidden;
+  padding: 2rem 0;
+  position: relative;
 }
 
 main {
-    width: 100%;
-    max-width: 900px;
-    padding: 2rem;
-    position: relative;
-    text-align: center;
+  width: 100%;
+  max-width: 900px;
+  padding: 2rem;
+  position: relative;
+  text-align: center;
 }
 
 /* Floating icons */
 .floating-icons {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 1;
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
 }
 
 .float-icon {
-    position: absolute;
-    width: clamp(70px, 10vw, 140px);
-    opacity: 0.8;
-    filter: brightness(0) invert(1);
-    pointer-events: auto;
-    cursor: pointer;
+  position: absolute;
+  width: clamp(70px, 10vw, 140px);
+  opacity: 0.8;
+  filter: brightness(0) invert(1);
+  pointer-events: auto;
+  cursor: pointer;
 }
 
 @keyframes float {
-    0%, 100% { transform: translateY(0) rotate(0); }
-    50% { transform: translateY(-20px) rotate(5deg); }
+  0%,
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
 }
 
 @keyframes floatAlt {
-    0%, 100% { transform: translateY(0) rotate(0); }
-    50% { transform: translateY(-25px) rotate(-5deg); }
+  0%,
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+  50% {
+    transform: translateY(-25px) rotate(-5deg);
+  }
 }
 
 @keyframes droneTurn {
-    0%, 90% { transform: translateY(0) rotate(0deg); }
-    95% { transform: translateY(-20px) rotate(180deg); }
-    100% { transform: translateY(0) rotate(360deg); }
+  0%,
+  90% {
+    transform: translateY(0) rotate(0deg);
+  }
+  95% {
+    transform: translateY(-20px) rotate(180deg);
+  }
+  100% {
+    transform: translateY(0) rotate(360deg);
+  }
 }
 
 /* Position each icon differently */
 .float-1 {
-    top: 10%;
-    left: 5%;
-    animation: float 6s ease-in-out infinite;
+  top: 10%;
+  left: 5%;
+  animation: float 6s ease-in-out infinite;
 }
 
 .float-2 {
-    top: 20%;
-    right: 8%;
-    animation: floatAlt 7s ease-in-out infinite;
-    animation-delay: 0.5s;
+  top: 20%;
+  right: 8%;
+  animation: floatAlt 7s ease-in-out infinite;
+  animation-delay: 0.5s;
 }
 
 .float-3 {
-    top: 45%;
-    left: 3%;
-    animation: float 8s ease-in-out infinite;
-    animation-delay: 1s;
+  top: 45%;
+  left: 3%;
+  animation: float 8s ease-in-out infinite;
+  animation-delay: 1s;
 }
 
 .float-4 {
-    top: 60%;
-    right: 5%;
-    animation: floatAlt 6.5s ease-in-out infinite;
-    animation-delay: 1.5s;
+  top: 60%;
+  right: 5%;
+  animation: floatAlt 6.5s ease-in-out infinite;
+  animation-delay: 1.5s;
 }
 
 .float-5 {
-    bottom: 15%;
-    left: 8%;
-    animation: float 7.5s ease-in-out infinite;
-    animation-delay: 2s;
+  bottom: 15%;
+  left: 8%;
+  animation: float 7.5s ease-in-out infinite;
+  animation-delay: 2s;
 }
 
 .float-6 {
-    bottom: 25%;
-    right: 12%;
-    animation: floatAlt 8s ease-in-out infinite;
-    animation-delay: 0.8s;
+  bottom: 25%;
+  right: 12%;
+  animation: floatAlt 8s ease-in-out infinite;
+  animation-delay: 0.8s;
 }
 
 .float-7 {
-    top: 35%;
-    right: 15%;
-    animation: float 6.8s ease-in-out infinite;
-    animation-delay: 1.2s;
+  top: 35%;
+  right: 15%;
+  animation: float 6.8s ease-in-out infinite;
+  animation-delay: 1.2s;
 }
 
 .float-8 {
-    bottom: 10%;
-    left: 18%;
-    animation: floatAlt 7.2s ease-in-out infinite;
-    animation-delay: 1.8s;
+  bottom: 10%;
+  left: 18%;
+  animation: floatAlt 7.2s ease-in-out infinite;
+  animation-delay: 1.8s;
 }
 
 /* Header with logo */
 .hero {
-    margin-bottom: 2rem;
+  margin-bottom: 2rem;
 }
 
 .header-logo {
-    max-width: 100%;
-    height: auto;
-    width: clamp(300px, 80vw, 700px);
+  max-width: 100%;
+  height: auto;
+  width: clamp(300px, 80vw, 700px);
 }
 
 /* Tagline */
 .tagline {
-    margin: 2rem auto 3rem;
-    max-width: 750px;
+  margin: 2rem auto 3rem;
+  max-width: 750px;
 }
 
 .tagline h2 {
-    font-family: 'Brother', sans-serif;
-    font-size: clamp(1.5rem, 4vw, 2.5rem);
-    font-weight: bold;
-    text-transform: uppercase;
-    line-height: 1.3;
-    color: #FFF5E6;
+  font-family: "Brother", sans-serif;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 1.3;
+  color: #fff5e6;
 }
 
 /* Description text */
 .description {
-    max-width: 650px;
-    margin: 0 auto 3rem;
+  max-width: 650px;
+  margin: 0 auto 3rem;
 }
 
 .description p {
-    font-size: clamp(1rem, 2.5vw, 1.15rem);
-    line-height: 1.6;
-    margin-bottom: 1rem;
-    font-weight: 400;
-    color: rgba(255, 255, 255, 0.95);
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.95);
 }
 
 /* Details section */
 .details {
-    margin: 1rem auto 3rem;
+  margin: 1rem auto 3rem;
 }
 
 .details p {
-    font-family: 'Brother', sans-serif;
-    font-size: clamp(1.2rem, 3vw, 1.8rem);
-    font-weight: bold;
-    text-transform: uppercase;
-    margin: 0.5rem 0;
-    color: #FFF5E6;
+  font-family: "Brother", sans-serif;
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 0.5rem 0;
+  color: #fff5e6;
 }
 
 .button-group {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: center;
-    margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.5rem;
 }
 
 .calendar-button,
 .cfp-button {
-    display: inline-block;
-    padding: 0.9rem 2rem;
-    font-family: 'Brother', sans-serif;
-    font-size: clamp(1rem, 2.5vw, 1.2rem);
-    font-weight: bold;
-    text-transform: uppercase;
-    text-decoration: none;
-    border-radius: 50px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  display: inline-block;
+  padding: 0.9rem 2rem;
+  font-family: "Brother", sans-serif;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
 .calendar-button {
-    background: rgba(255, 255, 255, 0.95);
-    color: #FF5A6E;
+  background: rgba(255, 255, 255, 0.95);
+  color: #ff5a6e;
 }
 
 .calendar-button:hover {
-    background: #FFF5E6;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  background: #fff5e6;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
 .cfp-button {
-    background: rgba(255, 255, 255, 0.2);
-    color: #FFF5E6;
-    border: 2px solid rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff5e6;
+  border: 2px solid rgba(255, 255, 255, 0.9);
 }
 
 .cfp-button:hover {
-    background: rgba(255, 255, 255, 0.3);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* How to get there & Contact sections */
 .how-to-get-there,
 .contact-section {
-    margin: 3rem auto;
-    max-width: 700px;
+  margin: 3rem auto;
+  max-width: 700px;
 }
 
 .how-to-get-there h3,
 .contact-section h3 {
-    font-family: 'Brother', sans-serif;
-    font-size: clamp(1.5rem, 4vw, 2rem);
-    font-weight: bold;
-    text-transform: uppercase;
-    margin-bottom: 1.5rem;
-    color: #FFF5E6;
+  font-family: "Brother", sans-serif;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  color: #fff5e6;
 }
 
 .address {
-    font-size: clamp(1rem, 2.5vw, 1.2rem);
-    font-weight: 600;
-    margin-bottom: 1.5rem;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-weight: 600;
+  margin-bottom: 1.5rem;
 }
 
 /* Accordion */
 .accordion {
-    max-width: 650px;
-    margin: 2rem auto;
+  max-width: 650px;
+  margin: 2rem auto;
 }
 
 .accordion-item {
-    margin-bottom: 0.75rem;
-    border-radius: 12px;
-    overflow: hidden;
-    background: rgba(255, 255, 255, 0.1);
+  margin-bottom: 0.75rem;
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .accordion-header {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.1);
-    border: none;
-    padding: 1.2rem 1.5rem;
-    font-family: 'Brother', sans-serif;
-    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-    font-weight: bold;
-    text-transform: uppercase;
-    color: #FFF5E6;
-    cursor: pointer;
-    transition: background 0.3s ease;
-    text-align: left;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  padding: 1.2rem 1.5rem;
+  font-family: "Brother", sans-serif;
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #fff5e6;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  text-align: left;
 }
 
 .accordion-header:hover {
-    background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .accordion-icon {
-    font-size: 1.5rem;
-    font-weight: bold;
-    transition: transform 0.3s ease;
-    line-height: 1;
+  font-size: 1.5rem;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+  line-height: 1;
 }
 
 .accordion-item.active .accordion-icon {
-    transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 .accordion-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-    text-align: left;
-    padding: 0 1.5rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  text-align: left;
+  padding: 0 1.5rem;
 }
 
 .accordion-item.active .accordion-content {
-    max-height: 500px;
-    padding: 1.5rem 1.5rem 1.5rem;
+  max-height: 500px;
+  padding: 1.5rem 1.5rem 1.5rem;
 }
 
 .accordion-content p {
-    font-size: clamp(0.95rem, 2vw, 1.05rem);
-    line-height: 1.6;
-    margin-bottom: 0.8rem;
-    color: rgba(255, 255, 255, 0.95);
+  font-size: clamp(0.95rem, 2vw, 1.05rem);
+  line-height: 1.6;
+  margin-bottom: 0.8rem;
+  color: rgba(255, 255, 255, 0.95);
 }
 
 .accordion-content p:last-child {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .accordion-content strong {
-    font-weight: 600;
-    color: #FFF5E6;
+  font-weight: 600;
+  color: #fff5e6;
 }
 
 .map-container {
-    margin: 1.5rem auto;
-    border-radius: 16px;
-    overflow: hidden;
-    max-width: 500px;
-    aspect-ratio: 1 / 1;
-    border: 4px solid rgba(255, 255, 255, 0.9);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  margin: 1.5rem auto;
+  border-radius: 16px;
+  overflow: hidden;
+  max-width: 500px;
+  aspect-ratio: 1 / 1;
+  border: 4px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
 .map-container iframe {
-    width: 100%;
-    height: 100%;
-    display: block;
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 .map-link {
-    margin: 1rem 0 2rem;
+  margin: 1rem 0 2rem;
 }
 
 .contact-info {
-    margin-top: 1rem;
-    font-size: clamp(0.9rem, 2vw, 1rem);
+  margin-top: 1rem;
+  font-size: clamp(0.9rem, 2vw, 1rem);
 }
 
 .contact-info p {
-    margin: 0.5rem 0;
+  margin: 0.5rem 0;
 }
 
 .contact-info a,
 .map-link a {
-    color: #FFF5E6;
-    text-decoration: none;
-    transition: border-color 0.3s;
+  color: #fff5e6;
+  text-decoration: none;
+  transition: border-color 0.3s;
 }
 
 .map-link a {
-    font-weight: 600;
-    border-bottom: 2px solid rgba(255, 245, 230, 0.4);
+  font-weight: 600;
+  border-bottom: 2px solid rgba(255, 245, 230, 0.4);
 }
 
 .map-link a:hover {
-    border-color: rgba(255, 245, 230, 0.8);
+  border-color: rgba(255, 245, 230, 0.8);
 }
 
 .contact-info a {
-    font-weight: 500;
-    border-bottom: 1px solid rgba(255, 245, 230, 0.3);
+  font-weight: 500;
+  border-bottom: 1px solid rgba(255, 245, 230, 0.3);
 }
 
 .contact-info a:hover {
-    border-color: rgba(255, 245, 230, 0.7);
+  border-color: rgba(255, 245, 230, 0.7);
 }
 
 .info {
-    margin-top: 3rem;
-    font-size: clamp(0.9rem, 2vw, 1rem);
-    font-weight: 500;
-    opacity: 0.85;
-    font-style: italic;
+  margin-top: 3rem;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  font-weight: 500;
+  opacity: 0.85;
+  font-style: italic;
 }
 
 @media (max-width: 768px) {
-    main { padding: 1rem; }
-    .hero { margin-bottom: 2rem; }
-    .tagline { margin: 1.5rem auto 2rem; }
-    .details { margin-top: 2rem; }
+  main {
+    padding: 1rem;
+  }
+  .hero {
+    margin-bottom: 2rem;
+  }
+  .tagline {
+    margin: 1.5rem auto 2rem;
+  }
+  .details {
+    margin-top: 2rem;
+  }
+  .floating-icons {
+    display: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    * {
-        animation: none !important;
-        transition: none !important;
-    }
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
 }
