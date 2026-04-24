@@ -244,6 +244,95 @@ main {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
+/* Program section */
+.program {
+  margin: 3rem auto;
+  max-width: 700px;
+}
+
+.program h3 {
+  font-family: "Brother", sans-serif;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  color: #fff5e6;
+}
+
+.program-days {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.program-day {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1.25rem 1.25rem 1.5rem;
+  text-align: left;
+}
+
+.program-day-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255, 245, 230, 0.25);
+}
+
+.program-day-name {
+  font-family: "Brother", sans-serif;
+  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #fff5e6;
+}
+
+.program-day-date {
+  font-size: clamp(0.85rem, 2vw, 0.95rem);
+  font-weight: 500;
+  color: rgba(255, 245, 230, 0.8);
+}
+
+.program-slots {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.program-slots li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  margin-bottom: 0.8rem;
+}
+
+.program-slots li:last-child {
+  margin-bottom: 0;
+}
+
+.program-time {
+  font-size: clamp(0.8rem, 1.8vw, 0.9rem);
+  font-weight: 500;
+  color: rgba(255, 245, 230, 0.75);
+  letter-spacing: 0.02em;
+}
+
+.program-activity {
+  font-size: clamp(1rem, 2.2vw, 1.1rem);
+  font-weight: 600;
+  color: #fff5e6;
+}
+
+.program-note {
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  font-style: italic;
+  opacity: 0.85;
+  color: rgba(255, 255, 255, 0.9);
+}
+
 /* How to get there & Contact sections */
 .how-to-get-there,
 .contact-section {
