@@ -39,7 +39,48 @@ main {
   text-align: center;
 }
 
-/* Floating icons */
+/* === Shared: Brother display type (uppercase, cream) === */
+.tagline h2,
+.details p,
+.calendar-button,
+.cfp-button,
+.program h3,
+.how-to-get-there h3,
+.contact-section h3,
+.program-day-name,
+.lineup-heading,
+.accordion-header {
+  font-family: "Brother", sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #fff5e6;
+}
+
+/* === Shared: translucent card surface === */
+.program-day,
+.lineup-group,
+.accordion-item {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+}
+
+/* === Shared: section wrappers === */
+.program,
+.how-to-get-there,
+.contact-section {
+  margin: 3rem auto;
+  max-width: 700px;
+}
+
+/* === Shared: section headings === */
+.program h3,
+.how-to-get-there h3,
+.contact-section h3 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  margin-bottom: 1.5rem;
+}
+
+/* === Floating icons === */
 .floating-icons {
   position: fixed;
   inset: 0;
@@ -57,95 +98,31 @@ main {
 }
 
 @keyframes float {
-  0%,
-  100% {
-    transform: translateY(0) rotate(0);
-  }
-  50% {
-    transform: translateY(-20px) rotate(5deg);
-  }
+  0%, 100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-20px) rotate(5deg); }
 }
 
 @keyframes floatAlt {
-  0%,
-  100% {
-    transform: translateY(0) rotate(0);
-  }
-  50% {
-    transform: translateY(-25px) rotate(-5deg);
-  }
+  0%, 100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-25px) rotate(-5deg); }
 }
 
 @keyframes droneTurn {
-  0%,
-  90% {
-    transform: translateY(0) rotate(0deg);
-  }
-  95% {
-    transform: translateY(-20px) rotate(180deg);
-  }
-  100% {
-    transform: translateY(0) rotate(360deg);
-  }
+  0%, 90% { transform: translateY(0) rotate(0deg); }
+  95% { transform: translateY(-20px) rotate(180deg); }
+  100% { transform: translateY(0) rotate(360deg); }
 }
 
-/* Position each icon differently */
-.float-1 {
-  top: 10%;
-  left: 5%;
-  animation: float 6s ease-in-out infinite;
-}
+.float-1 { top: 10%; left: 5%;    animation: float    6s   ease-in-out infinite; }
+.float-2 { top: 20%; right: 8%;   animation: floatAlt 7s   ease-in-out infinite 0.5s; }
+.float-3 { top: 45%; left: 3%;    animation: float    8s   ease-in-out infinite 1s; }
+.float-4 { top: 60%; right: 5%;   animation: floatAlt 6.5s ease-in-out infinite 1.5s; }
+.float-5 { bottom: 15%; left: 8%; animation: float    7.5s ease-in-out infinite 2s; }
+.float-6 { bottom: 25%; right: 12%; animation: floatAlt 8s ease-in-out infinite 0.8s; }
+.float-7 { top: 35%; right: 15%;  animation: float    6.8s ease-in-out infinite 1.2s; }
+.float-8 { bottom: 10%; left: 18%; animation: floatAlt 7.2s ease-in-out infinite 1.8s; }
 
-.float-2 {
-  top: 20%;
-  right: 8%;
-  animation: floatAlt 7s ease-in-out infinite;
-  animation-delay: 0.5s;
-}
-
-.float-3 {
-  top: 45%;
-  left: 3%;
-  animation: float 8s ease-in-out infinite;
-  animation-delay: 1s;
-}
-
-.float-4 {
-  top: 60%;
-  right: 5%;
-  animation: floatAlt 6.5s ease-in-out infinite;
-  animation-delay: 1.5s;
-}
-
-.float-5 {
-  bottom: 15%;
-  left: 8%;
-  animation: float 7.5s ease-in-out infinite;
-  animation-delay: 2s;
-}
-
-.float-6 {
-  bottom: 25%;
-  right: 12%;
-  animation: floatAlt 8s ease-in-out infinite;
-  animation-delay: 0.8s;
-}
-
-.float-7 {
-  top: 35%;
-  right: 15%;
-  animation: float 6.8s ease-in-out infinite;
-  animation-delay: 1.2s;
-}
-
-.float-8 {
-  bottom: 10%;
-  left: 18%;
-  animation: floatAlt 7.2s ease-in-out infinite;
-  animation-delay: 1.8s;
-}
-
-/* Header with logo */
+/* === Hero / tagline / description === */
 .hero {
   margin-bottom: 2rem;
 }
@@ -156,22 +133,16 @@ main {
   width: clamp(300px, 80vw, 700px);
 }
 
-/* Tagline */
 .tagline {
   margin: 2rem auto 3rem;
   max-width: 750px;
 }
 
 .tagline h2 {
-  font-family: "Brother", sans-serif;
   font-size: clamp(1.5rem, 4vw, 2.5rem);
-  font-weight: bold;
-  text-transform: uppercase;
   line-height: 1.3;
-  color: #fff5e6;
 }
 
-/* Description text */
 .description {
   max-width: 650px;
   margin: 0 auto 3rem;
@@ -181,22 +152,17 @@ main {
   font-size: clamp(1rem, 2.5vw, 1.15rem);
   line-height: 1.6;
   margin-bottom: 1rem;
-  font-weight: 400;
   color: rgba(255, 255, 255, 0.95);
 }
 
-/* Details section */
+/* === Details + buttons === */
 .details {
   margin: 1rem auto 3rem;
 }
 
 .details p {
-  font-family: "Brother", sans-serif;
   font-size: clamp(1.2rem, 3vw, 1.8rem);
-  font-weight: bold;
-  text-transform: uppercase;
   margin: 0.5rem 0;
-  color: #fff5e6;
 }
 
 .button-group {
@@ -211,14 +177,17 @@ main {
 .cfp-button {
   display: inline-block;
   padding: 0.9rem 2rem;
-  font-family: "Brother", sans-serif;
   font-size: clamp(1rem, 2.5vw, 1.2rem);
-  font-weight: bold;
-  text-transform: uppercase;
   text-decoration: none;
   border-radius: 50px;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.calendar-button:hover,
+.cfp-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
 .calendar-button {
@@ -228,37 +197,18 @@ main {
 
 .calendar-button:hover {
   background: #fff5e6;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
 .cfp-button {
   background: rgba(255, 255, 255, 0.2);
-  color: #fff5e6;
   border: 2px solid rgba(255, 255, 255, 0.9);
 }
 
 .cfp-button:hover {
   background: rgba(255, 255, 255, 0.3);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Program section */
-.program {
-  margin: 3rem auto;
-  max-width: 700px;
-}
-
-.program h3 {
-  font-family: "Brother", sans-serif;
-  font-size: clamp(1.5rem, 4vw, 2rem);
-  font-weight: bold;
-  text-transform: uppercase;
-  margin-bottom: 1.5rem;
-  color: #fff5e6;
-}
-
+/* === Program days grid === */
 .program-days {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -266,10 +216,9 @@ main {
   margin-bottom: 1.5rem;
 }
 
-.program-day {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  padding: 1.25rem 1.25rem 1.5rem;
+.program-day,
+.lineup-group {
+  padding: 1.25rem;
   text-align: left;
 }
 
@@ -283,11 +232,7 @@ main {
 }
 
 .program-day-name {
-  font-family: "Brother", sans-serif;
   font-size: clamp(1.1rem, 2.5vw, 1.3rem);
-  font-weight: bold;
-  text-transform: uppercase;
-  color: #fff5e6;
 }
 
 .program-day-date {
@@ -296,44 +241,47 @@ main {
   color: rgba(255, 245, 230, 0.8);
 }
 
-.program-slots {
+/* === Shared: program/lineup item lists === */
+.program-slots,
+.lineup-list {
   list-style: none;
-  padding: 0;
-  margin: 0;
 }
 
-.program-slots li {
+.program-slots li,
+.lineup-list li {
   display: flex;
   flex-direction: column;
   gap: 0.15rem;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.85rem;
 }
 
-.program-slots li:last-child {
+.program-slots li:last-child,
+.lineup-list li:last-child {
   margin-bottom: 0;
 }
 
-.program-time {
+.program-time,
+.lineup-speaker {
   font-size: clamp(0.8rem, 1.8vw, 0.9rem);
   font-weight: 500;
   color: rgba(255, 245, 230, 0.75);
-  letter-spacing: 0.02em;
 }
 
-.program-activity {
+.program-activity,
+.lineup-title {
   font-size: clamp(1rem, 2.2vw, 1.1rem);
   font-weight: 600;
   color: #fff5e6;
+  line-height: 1.35;
 }
 
 .program-note {
   font-size: clamp(0.9rem, 2vw, 1rem);
   font-style: italic;
   opacity: 0.85;
-  color: rgba(255, 255, 255, 0.9);
 }
 
-/* Lineup */
+/* === Lineup === */
 .lineup {
   margin-top: 2rem;
   display: flex;
@@ -342,45 +290,11 @@ main {
   text-align: left;
 }
 
-.lineup-group {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  padding: 1.25rem;
-}
-
 .lineup-heading {
-  font-family: "Brother", sans-serif;
   font-size: clamp(1rem, 2.2vw, 1.15rem);
-  font-weight: bold;
-  text-transform: uppercase;
-  color: #fff5e6;
   margin-bottom: 0.85rem;
   padding-bottom: 0.6rem;
   border-bottom: 1px solid rgba(255, 245, 230, 0.25);
-}
-
-.lineup-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.lineup-list li {
-  display: flex;
-  flex-direction: column;
-  gap: 0.15rem;
-  margin-bottom: 0.85rem;
-}
-
-.lineup-list li:last-child {
-  margin-bottom: 0;
-}
-
-.lineup-title {
-  font-size: clamp(0.95rem, 2vw, 1.05rem);
-  font-weight: 600;
-  color: #fff5e6;
-  line-height: 1.35;
 }
 
 .lineup-meta {
@@ -388,12 +302,6 @@ main {
   flex-wrap: wrap;
   align-items: center;
   gap: 0.5rem;
-}
-
-.lineup-speaker {
-  font-size: clamp(0.8rem, 1.8vw, 0.9rem);
-  font-weight: 500;
-  color: rgba(255, 245, 230, 0.75);
 }
 
 .lineup-duration {
@@ -407,40 +315,21 @@ main {
   border-radius: 999px;
 }
 
-/* How to get there & Contact sections */
-.how-to-get-there,
-.contact-section {
-  margin: 3rem auto;
-  max-width: 700px;
-}
-
-.how-to-get-there h3,
-.contact-section h3 {
-  font-family: "Brother", sans-serif;
-  font-size: clamp(1.5rem, 4vw, 2rem);
-  font-weight: bold;
-  text-transform: uppercase;
-  margin-bottom: 1.5rem;
-  color: #fff5e6;
-}
-
+/* === How to get there === */
 .address {
   font-size: clamp(1rem, 2.5vw, 1.2rem);
   font-weight: 600;
   margin-bottom: 1.5rem;
 }
 
-/* Accordion */
+/* === Accordion === */
 .accordion {
-  max-width: 650px;
   margin: 2rem auto;
 }
 
 .accordion-item {
   margin-bottom: 0.75rem;
-  border-radius: 12px;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.1);
 }
 
 .accordion-header {
@@ -451,11 +340,7 @@ main {
   background: rgba(255, 255, 255, 0.1);
   border: none;
   padding: 1.2rem 1.5rem;
-  font-family: "Brother", sans-serif;
   font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-  font-weight: bold;
-  text-transform: uppercase;
-  color: #fff5e6;
   cursor: pointer;
   transition: background 0.3s ease;
   text-align: left;
@@ -486,7 +371,7 @@ main {
 
 .accordion-item.active .accordion-content {
   max-height: 500px;
-  padding: 1.5rem 1.5rem 1.5rem;
+  padding: 1.5rem;
 }
 
 .accordion-content p {
@@ -505,6 +390,7 @@ main {
   color: #fff5e6;
 }
 
+/* === Map === */
 .map-container {
   margin: 1.5rem auto;
   border-radius: 16px;
@@ -525,6 +411,7 @@ main {
   margin: 1rem 0 2rem;
 }
 
+/* === Contact + links === */
 .contact-info {
   margin-top: 1rem;
   font-size: clamp(0.9rem, 2vw, 1rem);
@@ -538,25 +425,20 @@ main {
 .map-link a {
   color: #fff5e6;
   text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(255, 245, 230, 0.3);
   transition: border-color 0.3s;
+}
+
+.contact-info a:hover,
+.map-link a:hover {
+  border-color: rgba(255, 245, 230, 0.7);
 }
 
 .map-link a {
   font-weight: 600;
-  border-bottom: 2px solid rgba(255, 245, 230, 0.4);
-}
-
-.map-link a:hover {
-  border-color: rgba(255, 245, 230, 0.8);
-}
-
-.contact-info a {
-  font-weight: 500;
-  border-bottom: 1px solid rgba(255, 245, 230, 0.3);
-}
-
-.contact-info a:hover {
-  border-color: rgba(255, 245, 230, 0.7);
+  border-bottom-width: 2px;
+  border-bottom-color: rgba(255, 245, 230, 0.4);
 }
 
 .info {
@@ -568,21 +450,10 @@ main {
 }
 
 @media (max-width: 768px) {
-  main {
-    padding: 1rem;
-  }
-  .hero {
-    margin-bottom: 2rem;
-  }
-  .tagline {
-    margin: 1.5rem auto 2rem;
-  }
-  .details {
-    margin-top: 2rem;
-  }
-  .floating-icons {
-    display: none;
-  }
+  main { padding: 1rem; }
+  .tagline { margin: 1.5rem auto 2rem; }
+  .details { margin-top: 2rem; }
+  .floating-icons { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
