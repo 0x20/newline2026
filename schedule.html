@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newline 2026 — Schedule</title>
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="stylesheet" href="schedule.css">
+</head>
+<body>
+    <main>
+        <h1>Newline 2026</h1>
+        <div id="content">
+            <p class="status">Loading schedule…</p>
+        </div>
+    </main>
+    <script src="schedule-data.js"></script>
+    <script>
+        const CONTENT = document.getElementById('content');
+
+        async function render() {
+            try {
+                const days = await fetchScheduleDays();
+                const grid = document.createElement('div');
+                grid.className = 'days';
+                for (const day of days) {
+                    if (!day.sessions.length) continue;
+                    grid.appendChild(buildDayColumn(day));
+                }
+                if (!grid.children.length) {
+                    CONTENT.innerHTML = '<p class="status">No sessions scheduled yet.</p>';
+                    return;
+                }
+                CONTENT.replaceChildren(grid);
+            } catch (e) {
+                CONTENT.innerHTML = '<p class="status">Schedule unavailable.</p>';
+            }
+        }
+
+        function buildDayColumn(day) {
+            const col = document.createElement('section');
+            col.className = 'day';
+
+            const h = document.createElement('h2');
+            h.textContent = formatDayLabel(day.date);
+            col.appendChild(h);
+
+            for (const s of day.sessions) {
+                const item = document.createElement('article');
+                item.className = 'session';
+
+                const time = document.createElement('div');
+                time.className = 'time';
+                time.textContent = s.start || '';
+                item.appendChild(time);
+
+                const body = document.createElement('div');
+                const title = document.createElement('div');
+                title.className = 'title';
+                title.textContent = s.title || 'Untitled';
+                body.appendChild(title);
+
+                const metaParts = [];
+                const sp = speakersText(s);
+                if (sp) metaParts.push(sp);
+                if (s.room) metaParts.push(s.room);
+                if (metaParts.length) {
+                    const meta = document.createElement('div');
+                    meta.className = 'meta';
+                    meta.textContent = metaParts.join(' · ');
+                    body.appendChild(meta);
+                }
+                item.appendChild(body);
+                col.appendChild(item);
+            }
+            return col;
+        }
+
+        render();
+        // Hard reload every 5 minutes to pick up new pretalx releases
+        setTimeout(() => location.reload(), 5 * 60 * 1000);
+    </script>
+</body>
+</html>

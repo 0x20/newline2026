@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newline 2026 — Up Next</title>
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="stylesheet" href="schedule.css">
+</head>
+<body class="upnext">
+    <main>
+        <header>
+            <h1>Up next</h1>
+            <span class="clock" id="clock">—</span>
+        </header>
+        <div id="content">
+            <p class="status">Loading…</p>
+        </div>
+    </main>
+    <script src="schedule-data.js"></script>
+    <script>
+        const CONTENT = document.getElementById('content');
+        const CLOCK = document.getElementById('clock');
+
+        function tickClock() {
+            CLOCK.textContent = new Date().toLocaleTimeString('en-GB', {
+                hour: '2-digit', minute: '2-digit'
+            });
+        }
+
+        async function render() {
+            tickClock();
+            try {
+                const days = await fetchScheduleDays();
+                const now = Date.now();
+                const upcoming = flattenSessions(days)
+                    .filter(s => new Date(s.date).getTime() > now)
+                    .sort((a, b) => new Date(a.date) - new Date(b.date))
+                    .slice(0, 2);
+
+                if (!upcoming.length) {
+                    CONTENT.innerHTML = '<p class="empty">No upcoming sessions — see you next time!</p>';
+                    return;
+                }
+
+                const wrap = document.createElement('div');
+                wrap.className = 'cards';
+                for (const s of upcoming) wrap.appendChild(buildCard(s));
+                CONTENT.replaceChildren(wrap);
+            } catch (e) {
+                CONTENT.innerHTML = '<p class="status">Schedule unavailable.</p>';
+            }
+        }
+
+        function buildCard(s) {
+            const card = document.createElement('div');
+            card.className = 'card';
+
+            const when = document.createElement('div');
+            when.className = 'when';
+            const dayLabel = new Date(s.date).toLocaleDateString('en-GB', { weekday: 'short' });
+            when.textContent = `${dayLabel} ${s.start || ''}`;
+            card.appendChild(when);
+
+            const title = document.createElement('div');
+            title.className = 'title';
+            title.textContent = s.title || 'Untitled';
+            card.appendChild(title);
+
+            const meta = document.createElement('div');
+            meta.className = 'meta';
+            if (s.room) {
+                const badge = document.createElement('span');
+                badge.className = 'badge';
+                badge.textContent = s.room;
+                meta.appendChild(badge);
+            }
+            const speakers = speakersText(s);
+            if (speakers) meta.appendChild(document.createTextNode(speakers));
+            if (meta.childNodes.length) card.appendChild(meta);
+
+            return card;
+        }
+
+        render();
+        setInterval(tickClock, 1000);
+        setInterval(render, 30 * 1000);
+        // Hard reload every hour as a memory-leak safety net
+        setTimeout(() => location.reload(), 60 * 60 * 1000);
+    </script>
+</body>
+</html>
