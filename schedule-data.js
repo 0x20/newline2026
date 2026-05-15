@@ -1,15 +1,31 @@
 const SCHEDULE_URL = 'https://cfp.hackerspace.gent/newline-2026/schedule/export/schedule.json';
 const SCHEDULE_PAGE = 'https://cfp.hackerspace.gent/newline-2026/schedule/';
 
+// Override titles for specific API sessions (key: `${session.date}|${room}`).
+// The Friday Hallway "DJ" slot in pretalx is actually DJefke.
+const API_TITLE_OVERRIDES = {
+    '2026-05-29T20:00:00+02:00|Hallway': 'DJefke',
+};
+
 const STATIC_EXTRAS = {
     '2026-05-29': [
         {
-            date: '2026-05-29T20:00:00+02:00',
-            start: '20:00',
-            duration: '06:00',
+            date: '2026-05-29T21:00:00+02:00',
             room: 'Hallway',
-            title: '(Silent) Disco',
+            title: 'Bloemist',
+            persons: [{ public_name: 'Bloemist' }],
+        },
+        {
+            date: '2026-05-29T22:00:00+02:00',
+            room: 'Hallway',
+            title: 'Eptic Lusion',
             persons: [{ public_name: 'Eptic Lusion · Duke of Philberg · Mindrone' }],
+        },
+        {
+            date: '2026-05-29T23:00:00+02:00',
+            room: 'Hallway',
+            title: 'Ruben',
+            persons: [{ public_name: 'Ruben' }],
         },
     ],
 };
@@ -22,7 +38,10 @@ async function fetchScheduleDays() {
     return days.map(day => {
         const sessions = [];
         for (const room of Object.keys(day.rooms || {})) {
-            for (const t of day.rooms[room]) sessions.push(t);
+            for (const t of day.rooms[room]) {
+                const override = API_TITLE_OVERRIDES[`${t.date}|${room}`];
+                sessions.push(override ? { ...t, title: override } : t);
+            }
         }
         for (const extra of STATIC_EXTRAS[day.date] || []) sessions.push(extra);
         sessions.sort((a, b) => new Date(a.date) - new Date(b.date));
