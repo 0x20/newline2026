@@ -87,10 +87,16 @@ document.querySelectorAll('.float-icon').forEach((icon) => {
         const parts = [];
         const speakers = speakersText(s);
         if (speakers) parts.push(speakers);
-        if (s.start) parts.push(s.start);
         if (s.room) parts.push(s.room);
         speakerLine.textContent = parts.join(' · ');
         meta.appendChild(speakerLine);
+
+        if (s.start) {
+            const timeChip = document.createElement('span');
+            timeChip.className = 'lineup-time';
+            timeChip.textContent = s.start;
+            meta.appendChild(timeChip);
+        }
 
         const dur = formatDuration(s.duration);
         if (dur) {
