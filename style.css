@@ -311,7 +311,8 @@ main {
 }
 
 .lineup-duration,
-.lineup-time {
+.lineup-time,
+.lineup-room {
   font-size: clamp(0.7rem, 1.6vw, 0.78rem);
   font-weight: 600;
   text-transform: uppercase;
@@ -320,6 +321,11 @@ main {
   background: rgba(255, 255, 255, 0.18);
   padding: 0.15rem 0.55rem;
   border-radius: 999px;
+}
+
+.lineup-room {
+  text-transform: none;
+  letter-spacing: 0;
 }
 
 .lineup-title a {

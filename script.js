@@ -84,12 +84,8 @@ document.querySelectorAll('.float-icon').forEach((icon) => {
 
         const speakerLine = document.createElement('span');
         speakerLine.className = 'lineup-speaker';
-        const parts = [];
-        const speakers = speakersText(s);
-        if (speakers) parts.push(speakers);
-        if (s.room) parts.push(s.room);
-        speakerLine.textContent = parts.join(' · ');
-        meta.appendChild(speakerLine);
+        speakerLine.textContent = speakersText(s);
+        if (speakerLine.textContent) meta.appendChild(speakerLine);
 
         if (s.start) {
             const timeChip = document.createElement('span');
@@ -104,6 +100,13 @@ document.querySelectorAll('.float-icon').forEach((icon) => {
             chip.className = 'lineup-duration';
             chip.textContent = dur;
             meta.appendChild(chip);
+        }
+
+        if (s.room) {
+            const roomChip = document.createElement('span');
+            roomChip.className = 'lineup-room';
+            roomChip.textContent = s.room;
+            meta.appendChild(roomChip);
         }
 
         li.appendChild(meta);
