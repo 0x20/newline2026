@@ -10,8 +10,8 @@ const STATIC_EXTRAS = {
             date: '2026-05-29T20:00:00+02:00',
             start: '20:00',
             room: 'Hallway',
-            title: 'Err0r',
-            persons: [{ public_name: 'Err0r · Ruben' }],
+            title: '[PROMPT]',
+            persons: [{ public_name: '[PROMPT]' }],
         },
         {
             date: '2026-05-29T20:00:00+02:00',
