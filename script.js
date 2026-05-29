@@ -26,6 +26,27 @@ document.querySelectorAll('.float-icon').forEach((icon) => {
     });
 });
 
+// Populate program-day card list items with DJ names from the API
+(function populateDjs() {
+    const targets = document.querySelectorAll('[data-djs-day]');
+    if (!targets.length) return;
+
+    fetchScheduleDays().then(days => {
+        for (const li of targets) {
+            const day = days.find(d => d.date === li.dataset.djsDay);
+            if (!day) continue;
+            for (const s of day.sessions) {
+                const name = speakersText(s) || s.title;
+                if (!name) continue;
+                const span = document.createElement('span');
+                span.className = 'program-detail';
+                span.textContent = name;
+                li.appendChild(span);
+            }
+        }
+    }).catch(() => {});
+})();
+
 // Schedule rendering from pretalx
 (function renderSchedule() {
     const container = document.getElementById('schedule');
